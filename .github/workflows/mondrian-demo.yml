@@ -1,0 +1,33 @@
+name: Mondrian Security Check
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+  push:
+    branches: [ main ]
+
+jobs:
+  security-check:
+    name: Zero Trust Policy Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run Mondrian Policy Check
+      uses: ./.github/actions/mondrian-check
+      with:
+        rules: 'iac,deploy'
+        fail-on-violations: 'true'
+        output-format: 'text'
+
+    - name: Upload results (on failure)
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: mondrian-results
+        path: |
+          mondrian_output.txt
+          mondrian_results.json
+        retention-days: 30

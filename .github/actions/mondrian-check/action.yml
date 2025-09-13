@@ -1,0 +1,90 @@
+name: 'Mondrian Policy Check'
+description: 'Run Mondrian Zero Trust policy checks against your repository'
+author: 'Chris McConnell'
+
+inputs:
+  rules:
+    description: 'Comma-separated list of rule categories to run (iac,deploy,device)'
+    required: false
+    default: 'iac,deploy'
+  fail-on-violations:
+    description: 'Whether to fail the action if policy violations are found'
+    required: false
+    default: 'true'
+  output-format:
+    description: 'Output format (text, json, sarif)'
+    required: false
+    default: 'text'
+
+outputs:
+  violations-found:
+    description: 'Number of policy violations found'
+    value: ${{ steps.check.outputs.violations-found }}
+  results-json:
+    description: 'Policy check results in JSON format'
+    value: ${{ steps.check.outputs.results-json }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        cache: false
+
+    - name: Build Mondrian CLI
+      shell: bash
+      run: |
+        echo "🔨 Building Mondrian CLI..."
+        cd ${{ github.action_path }}/../../../
+        go build -o mondrian cmd/mondrian/main.go
+        chmod +x mondrian
+
+    - name: Run Mondrian Policy Check
+      id: check
+      shell: bash
+      run: |
+        echo "🔍 Running Mondrian policy checks..."
+        cd ${{ github.workspace }}
+        
+        # Copy the built CLI to workspace
+        cp ${{ github.action_path }}/../../../mondrian ./mondrian
+        
+        # Run policy check and capture results
+        set +e  # Don't exit on failure, we want to handle it
+        ./mondrian check > mondrian_output.txt 2>&1
+        exit_code=$?
+        set -e
+        
+        # Display output
+        cat mondrian_output.txt
+        
+        # Count violations from output
+        violations=$(grep -c "❌" mondrian_output.txt || echo "0")
+        echo "violations-found=$violations" >> $GITHUB_OUTPUT
+        
+        # Create JSON output if requested
+        if [ "${{ inputs.output-format }}" = "json" ] || [ "${{ inputs.output-format }}" = "sarif" ]; then
+          echo "📋 Generating structured output..."
+          # For now, create basic JSON structure
+          echo "{\"violations\": $violations, \"status\": \"$([ $exit_code -eq 0 ] && echo 'pass' || echo 'fail')\"}" > mondrian_results.json
+          echo "results-json=$(cat mondrian_results.json)" >> $GITHUB_OUTPUT
+        fi
+        
+        # Add PR comment annotation
+        if [ $violations -gt 0 ] && [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+          echo "::warning::🚫 Mondrian found $violations security policy violations"
+        fi
+        
+        # Fail if violations found and fail-on-violations is true
+        if [ "${{ inputs.fail-on-violations }}" = "true" ] && [ $exit_code -ne 0 ]; then
+          echo "::error::❌ Policy check failed with $violations violations"
+          exit $exit_code
+        fi
+        
+        echo "✅ Mondrian policy check completed"
+
+branding:
+  icon: 'shield'
+  color: 'red'
