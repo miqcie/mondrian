@@ -73,12 +73,12 @@ runs:
         fi
         
         # Add PR comment annotation
-        if [ $violations -gt 0 ] && [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+        if [[ $violations -gt 0 && "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
           echo "::warning::🚫 Mondrian found $violations security policy violations"
         fi
         
         # Fail if violations found and fail-on-violations is true
-        if [ "${{ inputs.fail-on-violations }}" = "true" ] && [ $exit_code -ne 0 ]; then
+        if [[ "${{ inputs.fail-on-violations }}" == "true" && $exit_code -ne 0 ]]; then
           echo "::error::❌ Policy check failed with $violations violations"
           exit $exit_code
         fi
