@@ -48,12 +48,12 @@ runs:
         echo "🔍 Running Mondrian policy checks..."
         cd ${{ github.workspace }}
         
-        # Copy the built CLI to workspace
-        cp ${{ github.action_path }}/../../../mondrian ./mondrian
+        # Use the built CLI directly (it's already in the workspace)
+        mondrian_path="${{ github.action_path }}/../../../mondrian"
         
         # Run policy check and capture results
         set +e  # Don't exit on failure, we want to handle it
-        ./mondrian check > mondrian_output.txt 2>&1
+        $mondrian_path check > mondrian_output.txt 2>&1
         exit_code=$?
         set -e
         
