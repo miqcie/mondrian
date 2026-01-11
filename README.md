@@ -1,6 +1,14 @@
 # Mondrian
 
-> Zero Trust for startups that doesn't cost $50K
+> **⚠️ RESEARCH PROJECT - ARCHIVED JANUARY 2026**
+>
+> This repository represents a completed validation exercise for evidence-first Zero Trust architecture.
+> Built in 2 days (September 2025), it successfully demonstrated the feasibility of the approach.
+> Archived to focus on advisory/content work. See [RETROSPECTIVE.md](RETROSPECTIVE.md) for details.
+
+---
+
+> **Research Prototype:** Zero Trust validation exercise (not production-ready)
 
 **The Problem:** Startups live below the security poverty line. They move fast, then lose enterprise deals when buyers demand SOC2 or ISO. Enterprise Zero Trust platforms cost more than a junior developer's salary.
 
@@ -57,6 +65,16 @@ go build -o mondrian cmd/mondrian/main.go
   with:
     rules: 'iac,deploy,device'
 ```
+
+## Historical Reference
+
+This project's insights have been extracted as thought leadership content:
+
+- **[Why I Built and Shelved a Zero Trust Tool](https://eagleridgeadvisory.com)** - Decision framework for CISOs (coming soon)
+- **[The Security Poverty Line](https://eagleridgeadvisory.com)** - Economic analysis of the $200K compliance barrier (coming soon)
+- **[Evidence-First vs Detection-Only Security](https://eagleridgeadvisory.com)** - Technical deep-dive with code examples (coming soon)
+
+For advisory/consulting inquiries about compliance automation, evidence-first security, or build/buy decisions in the security space, visit [Eagle Ridge Advisory](https://eagleridgeadvisory.com) or [Caldris](https://caldris.io).
 
 ## License
 
