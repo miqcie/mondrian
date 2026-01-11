@@ -1,8 +1,12 @@
 # Mondrian
 
-> Evidence-first Zero Trust runtime for startups
+> Zero Trust for startups that doesn't cost $50K
 
-Mondrian blocks risky changes before merge or deploy and proves controls run with tamper-evident records.
+**The Problem:** Startups live below the security poverty line. They move fast, then lose enterprise deals when buyers demand SOC2 or ISO. Enterprise Zero Trust platforms cost more than a junior developer's salary.
+
+**The Solution:** Open-source Zero Trust that blocks risky changes AND proves your controls actually ran. Built for engineers, not procurement departments.
+
+**Current Release:** Policy enforcement CLI + GitHub Actions integration. First component of the larger Mondrian.dev Zero Trust OS vision.
 
 ## Quick Start
 
@@ -20,20 +24,23 @@ mondrian attest
 mondrian verify
 ```
 
-## How It Works
+## Why This Matters
 
-1. **Policy**: Declarative rules across code, infrastructure, device, and identity
-2. **Gateways**: CI/CD checks, pre-commit hooks, and runtime webhooks  
-3. **Evidence**: Signed attestations with immutable log and query API
+Enterprise buyers tighten security requirements every quarter. Startups that can't prove compliance lose deals. The current solution — Okta + VPNs + Drata + consultants — costs six figures and takes months.
 
-## MVP Features
+Mondrian flips this: **cryptographic proofs instead of compliance theater**.
 
-- ✅ Infrastructure as Code policy checks (S3, Security Groups)
-- ✅ Deploy policy enforcement (OIDC, two-person review)
-- ✅ Device health verification (osquery integration)
-- ✅ GitHub Actions integration
-- ✅ SLSA-compatible attestation generation
-- ✅ Offline proof verification
+## What It Does Today
+
+- 🛡️ **Blocks risky infrastructure** - Catches public S3 buckets, open security groups  
+- 🔐 **Enforces deployment security** - Requires OIDC, prevents risky merges
+- 📋 **Generates compliance proof** - SLSA-compatible attestations with tamper-evident chains
+- ⚡ **Integrates with GitHub** - Works in your existing workflow, not against it
+- 💰 **Costs $0** - Because security shouldn't be a luxury good
+
+## The Bigger Vision
+
+This CLI is the first piece of **Mondrian.dev** — the complete Zero Trust OS for developers. Coming soon: passkeys, zero-trust proxy, infra posture monitoring, and full compliance automation in one console.
 
 ## Installation
 
