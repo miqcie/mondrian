@@ -4,7 +4,7 @@
 
 "PostHog for Zero Trust" - make enterprise security accessible to startups without $50K+ budgets. Built as a validation exercise during Startup Virginia's Idea Factory program.
 
-The core insight: there's a quantifiable "security poverty line" (coined by Wendy Nather at Cisco in 2011) where startups below $200K in available compliance capital simply cannot access enterprise customers, regardless of product quality.
+The core insight: there's a quantifiable "security poverty line" (coined by Wendy Nather at 451 Research in 2011) where startups below $200K in available compliance capital simply cannot access enterprise customers, regardless of product quality.
 
 ## What We Built (2 days)
 
@@ -20,16 +20,16 @@ The prototype proved the technical approach works: you can generate cryptographi
 
 ### 1. Market Validation: The Problem is Real
 
-**The "security poverty line"** (coined by Wendy Nather, Cisco, 2011) isn't abstract - it's quantifiable:
+**The "security poverty line"** (coined by Wendy Nather, 451 Research, 2011) isn't abstract - it's quantifiable:
 
-- **29% of organizations lose enterprise deals** due to missing compliance certifications (A-LIGN 2023 Benchmark Report)
+- **29% of organizations lose new business** due to missing compliance certifications (A-LIGN 2023 Benchmark Report)
 - **$200K-400K first-year compliance costs** create an economic barrier:
   - SOC 2 certification: $35K-150K initially, $12K-60K annually
   - Internal engineering effort: 100-200 hours = ~$50K opportunity cost
-  - Insurance premium penalty: $45K/year higher for uncompliant startups
+  - Insurance impact: Companies with strong controls receive more favorable terms (Marsh)
 - **96% of GRC teams struggle** with keeping up with regulations (Swimlane study)
-- **41% without continuous compliance** report sales cycle slowdowns (Drata 2025)
-- **60% of SME cyber victims** go out of business within 6 months
+- **41% without continuous compliance** report sales cycle slowdowns (Drata 2023)
+- **Average data breach costs $4.45M**, with SMBs facing proportionally devastating costs relative to revenue (IBM CODB 2023)
 
 I experienced this firsthand at DeepWaterPoint & Associates. Compliance theatre is real - teams spend enormous time collecting evidence that doesn't meaningfully reduce risk.
 
@@ -60,7 +60,7 @@ This is where honest self-assessment mattered:
 **Advisory/content model is better ROI:**
 - My strengths: Translation, synthesis, fast prototyping, strategic thinking
 - Not my strengths: Community building, ongoing product maintenance, sales outreach, sustained customer development
-- Advisory work (Eagle Ridge, Caldris) plays to strengths without OSS maintenance burden
+- Advisory work (Eagle Ridge Advisory, Humaine Studio) plays to strengths without OSS maintenance burden
 - Content creates leveraged impact - blog posts reach more people than a GitHub repo
 
 **Claude Code augments capability, but has limits:**
@@ -104,7 +104,7 @@ This is where honest self-assessment mattered:
 
 4. **Be honest about bandwidth** - SBIR research requires 12-18 month focused commitment. Advisory model gives flexibility for life situations.
 
-5. **Test the "why" before building the "what"** - Economic analysis (A16Z margin impact, compliance scaling trap) should precede technical validation.
+5. **Test the "why" before building the "what"** - Economic analysis (margin impact of fixed compliance costs, compliance scaling trap) should precede technical validation.
 
 ## For Future Explorers
 
@@ -137,9 +137,9 @@ This repository demonstrates several valuable patterns:
 
 These blog posts extract the core insights from this research project:
 
-- [Why I Built and Shelved a Zero Trust Tool](#) - Eagle Ridge blog (decision framework for CISOs)
-- [The Security Poverty Line](#) - Eagle Ridge blog (economic analysis with quantified data)
-- [Evidence-First vs Detection-Only Security](#) - Eagle Ridge blog (technical deep-dive with code examples)
+- [Why I Built and Shelved a Zero Trust Tool](#) - Eagle Ridge Advisory blog (decision framework for CISOs)
+- [The Security Poverty Line](#) - Eagle Ridge Advisory blog (economic analysis with quantified data)
+- [Evidence-First vs Detection-Only Security](#) - Eagle Ridge Advisory blog (technical deep-dive with code examples)
 
 ## For Recruiters/Advisory Prospects
 
@@ -159,4 +159,4 @@ This project demonstrates:
 
 **GitHub:** https://github.com/miqcie/mondrian (read-only archive)
 
-**Contact:** For advisory/consulting inquiries about compliance automation, evidence-first security, or build/buy decisions in the security space, reach out through Eagle Ridge Advisory or Caldris.
+**Contact:** For advisory/consulting inquiries about compliance automation, evidence-first security, or build/buy decisions in the security space, reach out through [Eagle Ridge Advisory](https://eagleridge.io) or [Humaine Studio](https://humaine.studio).
