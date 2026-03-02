@@ -70,11 +70,11 @@ go build -o mondrian cmd/mondrian/main.go
 
 This project's insights have been extracted as thought leadership content:
 
-- **[Why I Built and Shelved a Zero Trust Tool](https://eagleridgeadvisory.com)** - Decision framework for CISOs (coming soon)
-- **[The Security Poverty Line](https://eagleridgeadvisory.com)** - Economic analysis of the $200K compliance barrier (coming soon)
-- **[Evidence-First vs Detection-Only Security](https://eagleridgeadvisory.com)** - Technical deep-dive with code examples (coming soon)
+- **[Why I Built and Shelved a Zero Trust Tool](https://eagleridge.io)** - Decision framework for CISOs (coming soon)
+- **[The Security Poverty Line](https://eagleridge.io)** - Economic analysis of the $200K compliance barrier (coming soon)
+- **[Evidence-First vs Detection-Only Security](https://eagleridge.io)** - Technical deep-dive with code examples (coming soon)
 
-For advisory/consulting inquiries about compliance automation, evidence-first security, or build/buy decisions in the security space, visit [Eagle Ridge Advisory](https://eagleridgeadvisory.com) or [Caldris](https://caldris.io).
+For advisory/consulting inquiries about compliance automation, evidence-first security, or build/buy decisions in the security space, visit [Eagle Ridge Advisory](https://eagleridge.io) or [Humaine Studio](https://humaine.studio).
 
 ## License
 
